@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+   db:
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: churropswp
+       MYSQL_DATABASE: wordpress
+       MYSQL_USER: churropswp
+       MYSQL_PASSWORD: churropswp
+
+   wordpress:
+     depends_on:
+       - db
+     command: ./start.sh
+     image: churrops/wp:1.1
+     ports:
+       - "80:80"
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: churropswp
+       WORDPRESS_DB_PASSWORD: churropswp
+     volumes:
+       - wordpress:/var/www/html/
+
+volumes:
+    db_data:
+    wordpress:

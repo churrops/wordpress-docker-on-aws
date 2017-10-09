@@ -19,3 +19,9 @@ variable "key_name" {
 variable "instance_type" {
   default = "t2.micro"
 }
+
+variable "sg_name" {}
+
+variable "tag_name" {}
+variable "tag_env" {}
+variable "tag_managed_by" {}

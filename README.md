@@ -1,6 +1,11 @@
 # Wordpress Docker na AWS with Terraform
 
+Pre requisite:
+
+AWS access_key and secret_key
+
+
 Step 1 - Project clone
 <pre>
-git clone https://XXX
+git clone https://github.com/churrops/wordpress-docker-on-aws.git
 </pre>

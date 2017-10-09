@@ -1,4 +1,4 @@
-# Wordpress Docker na AWS with Terraform
+# Wordpress Docker on AWS with Terraform
 
 Pre requisite:
 

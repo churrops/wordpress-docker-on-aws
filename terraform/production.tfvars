@@ -1,6 +1,6 @@
 # Vars for Access
-aws_access_key	= "AKIAI3XDKJV5REZA6USQ"
-aws_secret_key	= "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"
+#aws_access_key	= ""
+#aws_secret_key	= ""
 aws_region	= "us-east-1"
 key_name	= "rdglinux-awskey-us"
 instance_type	= "t2.micro"

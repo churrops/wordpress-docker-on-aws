@@ -1,6 +1,7 @@
 # Compiled files
-*.tfstate
-*.tfstate.backup
-
+terraform/credentials.tfvars
+terrform/*.tfstate.backup
+.git/*
+.git
 # Module directory
 .terraform/

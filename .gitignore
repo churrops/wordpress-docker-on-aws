@@ -4,4 +4,4 @@ terrform/*.tfstate.backup
 .git/*
 .git
 # Module directory
-.terraform/
+terraform/.terraform/

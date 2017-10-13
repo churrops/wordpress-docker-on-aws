@@ -1,13 +1,16 @@
-resource "aws_instance" "wp-churrops" {
+resource "aws_instance" "ec2_wp_churrops_blog" {
   ami             = "${lookup(var.amis, var.aws_region)}"
   instance_type   = "${var.instance_type}"
-  security_groups = ["${sg_name}"]
+  security_groups = ["sg_wp_churrops_blog"]
   key_name        = "${var.key_name}"
   user_data       = "${file("script.sh")}"
 
-    tags {
-    Name            = ["${tags}"]
-    Managed-By      = "tag_"
-    Role            = "tag"
+  tags {
+    Name 	= "wp_churrops_blog"
+    iac		= "terraform"
+    container	= "docker"
+    role        = "production"
+    admin_user	= "Rodrigo Floriano de Souza"
+    admin_email	= "florianocomercial@gmail.com"
   }
 }

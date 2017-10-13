@@ -1,8 +1,13 @@
-variable "aws_access_key" {}
-variable "aws_secret_key" {}
+variable "aws_access_key" {
+  default = ""
+}
+
+variable "aws_secret_key" {
+  default = ""
+}
 
 variable "aws_region" {
-  default = "us-east-1"
+  default = ""
 }
 
 variable "amis" {
@@ -13,15 +18,9 @@ variable "amis" {
 }
 
 variable "key_name" {
-  default = "rdglinux-awskey-us"
+   default = "rdglinux-awskey-us"
 }
 
 variable "instance_type" {
-  default = "t2.micro"
+  default = ""
 }
-
-variable "sg_name" {}
-
-variable "tag_name" {}
-variable "tag_env" {}
-variable "tag_managed_by" {}

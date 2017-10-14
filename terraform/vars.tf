@@ -18,9 +18,9 @@ variable "amis" {
 }
 
 variable "key_name" {
-   default = "rdglinux-awskey-us"
+   default = "terraform-key-us"
 }
 
 variable "instance_type" {
-  default = ""
+  default = "t2.micro"
 }

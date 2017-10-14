@@ -5,6 +5,11 @@ resource "aws_instance" "ec2_wp_churrops_blog" {
   key_name        = "${var.key_name}"
   user_data       = "${file("userdata_script.sh")}"
 
+  provisioner "file" {
+    source      = ""
+    destination = "/etc/myapp.conf"
+  }
+
   tags {
     Name 	= "wp_churrops_blog"
     iac		= "terraform"

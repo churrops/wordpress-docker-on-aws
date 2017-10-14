@@ -16,7 +16,7 @@ services:
      depends_on:
        - db
      command: ./start.sh
-     image: churrops/wp:1.1
+     image: churrops/wordpress-nginx-php7-fpm:lates
      ports:
        - "80:80"
      restart: always

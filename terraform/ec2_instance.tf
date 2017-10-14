@@ -3,7 +3,7 @@ resource "aws_instance" "ec2_wp_churrops_blog" {
   instance_type   = "${var.instance_type}"
   security_groups = ["sg_wp_churrops_blog"]
   key_name        = "${var.key_name}"
-  user_data       = "${file("script.sh")}"
+  user_data       = "${file("userdata_script.sh")}"
 
   tags {
     Name 	= "wp_churrops_blog"

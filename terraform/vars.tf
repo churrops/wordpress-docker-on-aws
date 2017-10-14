@@ -1,19 +1,19 @@
 variable "aws_access_key" {
-  default = ""
+#  default = ""
 }
 
 variable "aws_secret_key" {
-  default = ""
+#  default = ""
 }
 
 variable "aws_region" {
-  default = ""
+  default = "us-east-1"
 }
 
 variable "amis" {
   type    = "map"
   default = {
-    us-east-1 = "ami-a4c7edb2"
+    us-east-1 = "ami-8c1be5f6"
   }
 }
 

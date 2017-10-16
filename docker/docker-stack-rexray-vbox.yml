@@ -7,7 +7,6 @@ services:
        - db_data:/var/lib/mysql
      networks:
        - backend
-     restart: always
      environment:
        MYSQL_ROOT_PASSWORD: churropswp
        MYSQL_DATABASE: wordpress
@@ -24,8 +23,7 @@ services:
      command: ./start.sh
      image: churrops/wordpress-nginx-php7-fpm:latest
      ports:
-       - "8180:80"
-     restart: always
+       - "80:80"
      environment:
        WORDPRESS_DB_HOST: db:3306
        WORDPRESS_DB_USER: churropswp

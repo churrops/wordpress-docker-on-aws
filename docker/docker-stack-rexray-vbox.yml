@@ -1,0 +1,55 @@
+version: "3"
+
+services:
+   db:
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+     networks:
+       - frontend
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: churropswp
+       MYSQL_DATABASE: wordpress
+       MYSQL_USER: churropswp
+       MYSQL_PASSWORD: churropswp
+     deploy:
+       placement:
+         constraints: [node.role == manager]
+
+   wordpress:
+     depends_on:
+       - db
+     command: ./start.sh
+     image: churrops/wordpress-nginx-php7-fpm:latest
+     ports:
+       - "8180:80"
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: churropswp
+       WORDPRESS_DB_PASSWORD: churropswp
+     networks:
+      - frontend
+      - backend
+     volumes:
+       - wordpress:/var/www/html/
+     labels:
+       - "traefik.port=80"
+       - "traefik.frontend.rule=Host:test.churrops.com"
+     deploy:
+      replicas: 6
+      update_config:
+        parallelism: 2
+      restart_policy:
+        condition: on-failure
+
+networks:
+  frontend:
+  backend:
+
+volumes:
+    db_data:
+      driver: rexray
+    wordpress:
+      driver: rexray
